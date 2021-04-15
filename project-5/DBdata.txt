@@ -1,0 +1,84 @@
+UID: 3035666669
+
+Here are the 5 create table commands:
+
+CREATE TABLE `answer` (
+  `aid` int(11) NOT NULL,
+  `qid` int(20) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `uid` int(20) NOT NULL,
+  `uname` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `added_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE `category` (
+  `cid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `added_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+CREATE TABLE `question` (
+  `qid` int(11) NOT NULL,
+  `space` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `up` int(20) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorid` int(20) NOT NULL,
+  `creatorName` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+CREATE TABLE `upvote` (
+  `vite` int(11) NOT NULL,
+  `qid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `uname` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `added_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+CREATE TABLE `user` (
+  `uid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `added_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+Just for information, all the primary keys of the tables are auto incremented:
+
+ALTER TABLE `answer`
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+
+ALTER TABLE `category`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+
+ALTER TABLE `question`
+  MODIFY `qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+
+ALTER TABLE `upvote`
+  MODIFY `vite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+
+ALTER TABLE `user`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
